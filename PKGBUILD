@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: AGPL-3.0
+#
+# Maintainer: Truocolo <truocolo@aol.com>
+# Maintainer: Pellegrino Prevete (tallero) <pellegrinoprevete@gmail.com>
 # Maintainer: Jelle van der Waa <jelle@archlinux.org>
 # Contributor: Eli Schwartz <eschwartz@archlinux.org>
 # Contributor: Daniel J Griffiths <ghost1227@archlinux.us>
@@ -10,7 +14,10 @@ arch=('any')
 url="https://github.com/html5lib"
 license=('MIT')
 pkgdesc="A Python HTML parser/tokenizer based on the WHATWG HTML5 spec"
-_deps=('six' 'webencodings')
+_deps=(
+  'six'
+  'webencodings'
+)
 depends=("${_deps[@]/#/python-}")
 makedepends=('python-setuptools' "${_deps[@]/#/python-}")
 _checkdeps=('pytest' 'pytest-expect')
@@ -60,3 +67,4 @@ package() {
     python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
     install -Dm644 LICENSE "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
 }
+
